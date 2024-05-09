@@ -1,2 +1,3 @@
-public class MyTestingClass {
+public class MyTestingClass{
+
 }
