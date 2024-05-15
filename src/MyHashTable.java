@@ -65,8 +65,12 @@ public class MyHashTable<K, V> {
         return null;
     }
 
+    public int getSize(){
+        return size;
+    }
+
     /**
-     * method that adds a node to chainArray
+     * method that adds a node to the hashtable
      *
      * @param key the key
      * @param value the value
@@ -82,10 +86,22 @@ public class MyHashTable<K, V> {
         size++;
     }
 
+    /**
+     * method that returns the value of a node by key
+     *
+     * @param key the key
+     * @return value of the node
+     */
     public V get(K key){
         return getNode(key).value;
     }
 
+    /**'
+     * method that removes a node from the hashtable
+     *
+     * @param key the key
+     * @return removed node
+     */
     public V remove(K key){
         HashNode<K, V> removedNode = getNode(key);
         HashNode<K, V> current = chainArray[hash(key)];
@@ -103,20 +119,26 @@ public class MyHashTable<K, V> {
     }
 
     public boolean contains(V value){
+        return getKey(value) != null;
+    }
+
+    /**
+     * method that returns the key of a node by value
+     *
+     * @param value the value
+     * @return the key
+     */
+    public K getKey(V value){
         HashNode<K, V> current;
         for (int i = 0; i<M; i++){
             current = chainArray[i];
             while(current!=null){
                 if (current.value==value){
-                    return true;
+                    return current.key;
                 }
                 current=current.next;
             }
         }
-        return false;
-    }
-
-    public K getKey(V value){
         return null;
     }
 }
