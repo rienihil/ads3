@@ -1,5 +1,7 @@
+import java.util.Iterator;
+
 public class Main {
-    public static void main(String[] args){
+    public static <K> void main(String[] args){
         MyHashTable<MyTestingClass, String> ht = new MyHashTable<>();
 
         MyBinarySearchTree<Integer, String> bst = new MyBinarySearchTree<>();
